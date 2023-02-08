@@ -2,25 +2,27 @@
 #include<time.h>
 #include<stdlib.h>
 #include "operatii.h"
-//#include <windows.h>
+#include <windows.h>
 using namespace std;
-#define LAT 24
-#define LUNG 12
+
 
 
 int main(){
     srand(time(NULL));
-    //system("chcp 65001 > nul");
+    system("chcp 65001 > nul");
     nod *p = new nod;
     p->culoare=0;
     p->info=5;
     nod*q=p;
-  
+    p->legi=NULL;
+
+
     for(int i = 1; i <= 4; i++){
         nod*n = new nod;
         q->leg=n;
         n->info=0;
         n->culoare=0;
+        n->legi=q;
         q=n;
     }
 
@@ -28,17 +30,20 @@ int main(){
     q->leg=l;
     l->info=2;
     l->culoare=1;
+    l->legi=q;
     q=l;
 
     l=new nod;
     l->info = 5;
     l->culoare=1;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     for(int i = 1; i <= 3; i++){
         nod*n = new nod;
         q->leg=n;
+        n->legi=q;
         n->info=0;
         n->culoare=0;
         q=n;
@@ -48,23 +53,27 @@ int main(){
     l->info=3;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     l=new nod;
     l->info=0;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     l = new nod;
     l->info=5;
     l->culoare=1;
     q->leg=l;
+    l->legi=q;
     q=l;
 
      for(int i = 1; i <= 4; i++){
         nod *n = new nod;
         q->leg=n;
+        n->legi=q;
         n->info=0;
         n->culoare=0;
         q=n;
@@ -73,17 +82,20 @@ int main(){
     l->info=2;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     l=new nod ;
     l->info =5;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     for(int i = 1; i <= 3; i++){
         nod *n = new nod;
         q->leg=n;
+        n->legi=q;
         n->info=0;
         n->culoare=0;
         q=n;
@@ -93,18 +105,21 @@ int main(){
     l->info=3;
     l->culoare=1;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     l=new nod;
     l->info=0;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
 
     l=new nod;
     l->info=0;
     l->culoare=0;
     q->leg=l;
+    l->legi=q;
     q=l;
     q->leg=NULL;
 
@@ -136,15 +151,15 @@ int main(){
 */
      cout<<"■";
      cout<<"□";
-q=p;
+/*q=p;
     for( int i=1;i<=24;i++)
     {cout<<q->info<<" ";
     q=q->leg;
 
     }
-	
+
 		cout << endl << culoare(1, p) << " " << culoare(7, p) << endl;
-		
+*/
 
 
 cout<<".       .    .  .    .       .       .    .  .    .       .       .       .    .       .       .       .    .  .    .       .       .    .  .    .    \n";
